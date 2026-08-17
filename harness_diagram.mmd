@@ -1,0 +1,49 @@
+flowchart TD
+    %% Input Layer
+    RawDoc["Raw Meeting Transcript (Google Doc)"] --> IngestionLayer["Ingestion Layer"]
+
+    %% Primitive Extraction
+    subgraph Ingestion ["1. Extraction & Ingestion Layer"]
+        IngestionLayer --> ExtractPrimitives["LLM Structured Extraction"]
+        ExtractPrimitives --> ExtractedNodes["Extract Core Primitives:<br/>- Actors<br/>- Goals<br/>- Data Entities<br/>- Constraints<br/>- Assumptions"]
+    end
+
+    ExtractedNodes --> KnowledgeMap
+
+    %% Knowledge Map State Graph
+    subgraph StateManager ["2. State Manager"]
+        KnowledgeMap[("Knowledge Map Graph<br/>Nodes & Relationship Edges")]
+    end
+
+    KnowledgeMap --> GapDetector
+
+    %% Harness Core - Gap Detector
+    subgraph HarnessCore ["3. Harness Core (Gap Detector)"]
+        GapDetector["Gap Detector Engine"]
+        
+        GapDetector --> StructuralChecks["Structural Checks (Code):<br/>- Orphaned Goals (Missing Actor)<br/>- Missing Data Entities<br/>- Floating Constraints"]
+        
+        GapDetector --> SemanticChecks["Semantic Checks (LLM):<br/>- JTBD Motivation ('Why')<br/>- Trigger Context ('When')<br/>- Measurable Outcome ('So That')<br/>- Unmeasurable Constraints / SLAs<br/>- Unhandled Failure Modes"]
+    end
+
+    StructuralChecks --> DecisionGate{"Decision Gate:<br/>Gaps Found?"}
+    SemanticChecks --> DecisionGate
+
+    %% Feedback Loop Branch
+    subgraph FeedbackLoop ["4. Priority Question Engine (Loop Back)"]
+        DecisionGate -- "YES (Gaps Found)" --> QuestionEngine["Priority Question Engine<br/>(P1 Blocker / P2 High / P3 Medium)"]
+        QuestionEngine --> UserQuestions["Targeted Questions to Stakeholder"]
+        UserQuestions --> UserAnswers["User Answers & Clarifications"]
+        UserAnswers -- "Re-ingest Feedback" --> IngestionLayer
+    end
+
+    %% Synthesis Branch
+    subgraph OutputLayer ["5. Synthesis Engine"]
+        DecisionGate -- "NO (All Gaps Resolved)" --> SynthesisEngine["Synthesis Engine"]
+        
+        SynthesisEngine --> Outputs["Structured Engineering Artifacts"]
+        Outputs --> PRD["Requirements (REQ & NFR)"]
+        Outputs --> JTBD["JTBD Matrix (Actor/Situation/Outcome)"]
+        Outputs --> TechSpec["Engineering Specification Document"]
+        Outputs --> AC["Acceptance Criteria (Given / When / Then)"]
+    end
