@@ -13,16 +13,17 @@ class OpenRouterClient:
     def __init__(self, config: Optional[Config] = None):
         self.config = config or Config.from_env()
 
-    def complete(self, prompt: str, system_prompt: str = "") -> str:
+    def complete(self, prompt: str, system_prompt: str = "", model: Optional[str] = None) -> str:
         """
-        Sends a completion request to OpenRouter for the configured model.
+        Sends a completion request to OpenRouter for the requested or configured model.
         Returns the text response content.
         """
+        target_model = model or self.config.llm_model_extract
         api_key = self.config.openrouter_api_key
         if not api_key:
             # Return graceful mock response if API key is not configured yet
             return (
-                f"[MOCK OPENROUTER RESPONSE - Model: {self.config.llm_model}]\n"
+                f"[MOCK OPENROUTER RESPONSE - Model: {target_model}]\n"
                 f"Prompt received: {prompt[:100]}...\n"
                 "Please configure OPENROUTER_API_KEY in your .env file to enable live completions."
             )
@@ -33,7 +34,7 @@ class OpenRouterClient:
         messages.append({"role": "user", "content": prompt})
 
         payload: Dict[str, Any] = {
-            "model": self.config.llm_model,
+            "model": target_model,
             "messages": messages,
             "temperature": self.config.llm_temperature,
         }

@@ -1,7 +1,9 @@
-from typing import List
+from typing import List, Optional
 from harness.models import (
     KnowledgeMap, Gap, GapCategory, GapPriority, Goal, Constraint
 )
+from harness.config import Config
+from harness.llm_client import OpenRouterClient
 
 class GapDetector:
     """
@@ -9,10 +11,14 @@ class GapDetector:
     Returns a list of identified Gaps ordered by priority.
     """
 
+    def __init__(self, config: Optional[Config] = None):
+        self.config = config or Config.from_env()
+        self.llm_client = OpenRouterClient(self.config)
+
     def evaluate(self, kmap: KnowledgeMap) -> List[Gap]:
         gaps: List[Gap] = []
         
-        # 1. Structural Checks
+        # 1. Structural Checks (Code & Graph Traversal)
         gaps.extend(self._check_orphaned_goals(kmap))
         gaps.extend(self._check_missing_entities(kmap))
         gaps.extend(self._check_floating_constraints(kmap))

@@ -1,6 +1,10 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from enum import Enum
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
+from datetime import datetime, timezone
+
+def current_utc_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
 
 class PrimitiveType(Enum):
     ACTOR = "actor"
@@ -24,12 +28,25 @@ class GapCategory(Enum):
     SEMANTIC_UNMEASURABLE_CONSTRAINT = "semantic_unmeasurable_constraint"
     SEMANTIC_UNHANDLED_FAILURE = "semantic_unhandled_failure"
 
+@dataclass
+class Project:
+    id: str
+    name: str
+    description: str
+    sheet_id: str = ""
+    created_at: str = field(default_factory=current_utc_iso)
+    last_updated: str = field(default_factory=current_utc_iso)
+    transcript_count: int = 0
+    status: str = "active"
+
 @dataclass(frozen=True)
 class Actor:
     id: str
     name: str
     role: str
     description: str = ""
+    source_doc: str = ""
+    extracted_at: str = field(default_factory=current_utc_iso)
 
 @dataclass(frozen=True)
 class Goal:
@@ -42,6 +59,8 @@ class Goal:
     underlying_motivation: Optional[str] = None  # "I want to [motivation]..."
     desired_outcome: Optional[str] = None  # "So that I can [outcome]..."
     failure_modes: List[str] = field(default_factory=list)
+    source_doc: str = ""
+    extracted_at: str = field(default_factory=current_utc_iso)
 
 @dataclass(frozen=True)
 class DataEntity:
@@ -49,6 +68,8 @@ class DataEntity:
     name: str
     fields: List[str] = field(default_factory=list)
     description: str = ""
+    source_doc: str = ""
+    extracted_at: str = field(default_factory=current_utc_iso)
 
 @dataclass(frozen=True)
 class Constraint:
@@ -57,12 +78,16 @@ class Constraint:
     target_id: Optional[str] = None  # Goal or DataEntity ID
     is_measurable: bool = False
     sla_metric: Optional[str] = None
+    source_doc: str = ""
+    extracted_at: str = field(default_factory=current_utc_iso)
 
 @dataclass(frozen=True)
 class Assumption:
     id: str
     description: str
     validated: bool = False
+    source_doc: str = ""
+    extracted_at: str = field(default_factory=current_utc_iso)
 
 @dataclass(frozen=True)
 class Edge:
@@ -99,6 +124,31 @@ class KnowledgeMap:
 
     def add_assumption(self, assumption: Assumption) -> None:
         self.assumptions[assumption.id] = assumption
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "actors": [asdict(a) for a in self.actors.values()],
+            "goals": [asdict(g) for g in self.goals.values()],
+            "entities": [asdict(e) for e in self.entities.values()],
+            "constraints": [asdict(c) for c in self.constraints.values()],
+            "assumptions": [asdict(asm) for asm in self.assumptions.values()],
+            "edges": [asdict(ed) for ed in self.edges],
+        }
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "KnowledgeMap":
+        kmap = cls()
+        for a in data.get("actors", []):
+            kmap.add_actor(Actor(**a))
+        for e in data.get("entities", []):
+            kmap.add_entity(DataEntity(**e))
+        for g in data.get("goals", []):
+            kmap.add_goal(Goal(**g))
+        for c in data.get("constraints", []):
+            kmap.add_constraint(Constraint(**c))
+        for asm in data.get("assumptions", []):
+            kmap.add_assumption(Assumption(**asm))
+        return kmap
 
 @dataclass(frozen=True)
 class Gap:

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "edge_sensors",
+    "name": "Edge Sensors & Informational Edge",
+    "description": "Deploying niche ground-truth physical sensors (cameras, foot traffic, supply chain metrics) to capture early informational advantage.",
+    "sheet_id": "mock_sheet_edge_sensors_123",
+    "created_at": "2026-08-17T10:46:14.314370+00:00",
+    "last_updated": "2026-08-17T14:49:12.263297+00:00",
+    "transcript_count": 4,
+    "status": "active"
+  },
+  {
+    "id": "seoul_kb_system",
+    "name": "Seoul Knowledge Base System",
+    "description": "Enterprise knowledge base and documentation sync for Seoul operations and engineering teams.",
+    "sheet_id": "mock_sheet_seoul_kb_456",
+    "created_at": "2026-08-17T10:46:14.314370+00:00",
+    "last_updated": "2026-08-17T10:46:14.314370+00:00",
+    "transcript_count": 0,
+    "status": "active"
+  }
+]
