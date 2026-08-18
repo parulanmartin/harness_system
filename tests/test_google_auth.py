@@ -3,9 +3,14 @@
 Quick script to verify Google Drive & Sheets access via your newly created OAuth Client.
 """
 
-from harness.google_auth import get_google_access_token
+import os
+import sys
 import urllib.request
 import json
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from harness.google_auth import get_google_access_token
 
 def test_drive():
     print("Testing Google Drive / Sheets connection...")

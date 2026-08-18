@@ -252,7 +252,7 @@ def main():
             from harness.sheets_api import GoogleSheetsClient
             sheets_client = GoogleSheetsClient()
             print("\n☁️  Step 7: Syncing project to Google Drive & Google Sheets...")
-            sheet_url = sheets_client.sync_project_to_sheet(target_project, kmap, outputs)
+            sheet_url = sheets_client.sync_project_to_sheet(target_project, kmap, outputs, source_doc_url=doc_input)
             print(f"  ✅ Live Google Sheet updated: {sheet_url}")
         except Exception as err:
             print(f"  [Notice] Google Sheets cloud sync skipped ({err})")

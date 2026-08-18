@@ -18,5 +18,25 @@
     "last_updated": "2026-08-17T10:46:14.314370+00:00",
     "transcript_count": 0,
     "status": "active"
+  },
+  {
+    "id": "trend_monitoring_system",
+    "name": "Trend Monitoring System",
+    "description": "Detecting early weak signals from niche digital communities using velocity-delta scoring, anomaly detection, and LLM-powered synthesis for trend forecasting.",
+    "sheet_id": "sheet_trend_monitoring_system",
+    "created_at": "2026-08-18T07:51:48.390854+00:00",
+    "last_updated": "2026-08-18T08:55:13.622015+00:00",
+    "transcript_count": 2,
+    "status": "active"
+  },
+  {
+    "id": "requirements_harness__transcription_automation",
+    "name": "Requirements Harness & Transcription Automation",
+    "description": "An automated system that processes meeting transcriptions via webhooks, identifies project requirements, and uses a knowledge mapping 'harness' to fill information gaps by prompting users for missing specifications, jobs to be done, and acceptance criteria.",
+    "sheet_id": "sheet_requirements_harness__transcription_automation",
+    "created_at": "2026-08-18T08:50:34.178770+00:00",
+    "last_updated": "2026-08-18T08:50:40.693418+00:00",
+    "transcript_count": 1,
+    "status": "active"
   }
 ]
