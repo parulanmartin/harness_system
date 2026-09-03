@@ -10,6 +10,7 @@ Features:
 
 import sys
 import os
+from dataclasses import replace
 from harness.config import Config
 from harness.gdoc_fetcher import fetch_google_doc_text
 from harness.models import KnowledgeMap, Project
@@ -164,11 +165,17 @@ def main():
     new_extracted_kmap = KnowledgeMap()
     engine.ingestor.parse_and_populate(raw_text, new_extracted_kmap)
 
-    # Set source doc on new primitives
-    for a in new_extracted_kmap.actors.values():
-        object.__setattr__(a, 'source_doc', doc_input) if hasattr(a, '__dict__') else None
-    for g in new_extracted_kmap.goals.values():
-        object.__setattr__(g, 'source_doc', doc_input) if hasattr(g, '__dict__') else None
+    # Set source doc on new primitives using immutable replace
+    for a_id, a in list(new_extracted_kmap.actors.items()):
+        new_extracted_kmap.actors[a_id] = replace(a, source_doc=doc_input)
+    for g_id, g in list(new_extracted_kmap.goals.items()):
+        new_extracted_kmap.goals[g_id] = replace(g, source_doc=doc_input)
+    for c_id, c in list(new_extracted_kmap.constraints.items()):
+        new_extracted_kmap.constraints[c_id] = replace(c, source_doc=doc_input)
+    for e_id, e in list(new_extracted_kmap.entities.items()):
+        new_extracted_kmap.entities[e_id] = replace(e, source_doc=doc_input)
+    for asm_id, asm in list(new_extracted_kmap.assumptions.items()):
+        new_extracted_kmap.assumptions[asm_id] = replace(asm, source_doc=doc_input)
 
     print(f"  - Extracted in this call: {len(new_extracted_kmap.actors)} Actors, {len(new_extracted_kmap.goals)} Goals, {len(new_extracted_kmap.constraints)} Constraints")
 

@@ -176,6 +176,24 @@ class GoogleSheetsClient:
         )
         self._execute_request(req)
 
+    def clear_tab(self, spreadsheet_id: str, tab_name: str) -> None:
+        """
+        Clears all existing content in a specific tab so fresh data does not overlap with old rows.
+        """
+        headers = self._get_headers()
+        encoded_range = urllib.parse.quote(f"{tab_name}!A1:Z500")
+        url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}/values/{encoded_range}:clear"
+        req = urllib.request.Request(
+            url,
+            headers=headers,
+            data=b"{}",
+            method="POST"
+        )
+        try:
+            self._execute_request(req)
+        except Exception:
+            pass
+
     def sync_project_to_sheet(
         self,
         project: Project,
@@ -214,13 +232,15 @@ class GoogleSheetsClient:
                 str(len(kmap.goals)),
                 str(len(kmap.entities))
             ])
-        self.update_tab_values(sheet_id, "Transcripts!A1:G20", transcripts_data)
+        self.clear_tab(sheet_id, "Transcripts")
+        self.update_tab_values(sheet_id, f"Transcripts!A1:G{max(len(transcripts_data), 1)}", transcripts_data)
 
         # 2. Sync Actors Tab
         actors_data = [["ID", "Name", "Role", "Description", "Source Doc", "Extracted At"]]
         for a in kmap.actors.values():
             actors_data.append([a.id, a.name, a.role, a.description, a.source_doc, a.extracted_at])
-        self.update_tab_values(sheet_id, "Actors!A1:F50", actors_data)
+        self.clear_tab(sheet_id, "Actors")
+        self.update_tab_values(sheet_id, f"Actors!A1:F{max(len(actors_data), 1)}", actors_data)
 
         # 3. Sync Goals Tab (JTBD)
         goals_data = [["ID", "Description", "Actors", "Entities", "When (Situation)", "Why (Motivation)", "So That (Outcome)", "Failure Modes", "Source Doc"]]
@@ -236,19 +256,22 @@ class GoogleSheetsClient:
                 "; ".join(g.failure_modes),
                 g.source_doc
             ])
-        self.update_tab_values(sheet_id, "Goals!A1:I50", goals_data)
+        self.clear_tab(sheet_id, "Goals")
+        self.update_tab_values(sheet_id, f"Goals!A1:I{max(len(goals_data), 1)}", goals_data)
 
         # 4. Sync Entities Tab
         entities_data = [["ID", "Name", "Fields", "Description", "Source Doc"]]
         for e in kmap.entities.values():
             entities_data.append([e.id, e.name, ", ".join(e.fields), e.description, e.source_doc])
-        self.update_tab_values(sheet_id, "Entities!A1:E50", entities_data)
+        self.clear_tab(sheet_id, "Entities")
+        self.update_tab_values(sheet_id, f"Entities!A1:E{max(len(entities_data), 1)}", entities_data)
 
         # 5. Sync Constraints Tab
         constraints_data = [["ID", "Description", "Target ID", "Is Measurable", "SLA Metric", "Source Doc"]]
         for c in kmap.constraints.values():
             constraints_data.append([c.id, c.description, c.target_id or "", str(c.is_measurable), c.sla_metric or "", c.source_doc])
-        self.update_tab_values(sheet_id, "Constraints!A1:F50", constraints_data)
+        self.clear_tab(sheet_id, "Constraints")
+        self.update_tab_values(sheet_id, f"Constraints!A1:F{max(len(constraints_data), 1)}", constraints_data)
 
         # 6. Sync Outputs Tab if available
         if outputs:
@@ -256,6 +279,7 @@ class GoogleSheetsClient:
                 ["Generated At", "Requirements Count", "JTBD Matrix Rows", "Specification Markdown"],
                 [project.last_updated, str(len(outputs.requirements)), str(len(outputs.jtbd_matrix)), outputs.spec]
             ]
-            self.update_tab_values(sheet_id, "Outputs!A1:D10", outputs_data)
+            self.clear_tab(sheet_id, "Outputs")
+            self.update_tab_values(sheet_id, f"Outputs!A1:D{max(len(outputs_data), 1)}", outputs_data)
 
         return f"https://docs.google.com/spreadsheets/d/{sheet_id}/edit"

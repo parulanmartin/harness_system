@@ -127,6 +127,20 @@ class SheetsStorage:
                     extracted_at=new_constraint.extracted_at
                 )
 
+        # 5. Merge Assumptions
+        for asm_id, new_asm in new_kmap.assumptions.items():
+            if asm_id not in existing.assumptions:
+                existing.add_assumption(new_asm)
+            else:
+                old_asm = existing.assumptions[asm_id]
+                existing.assumptions[asm_id] = Assumption(
+                    id=asm_id,
+                    description=new_asm.description or old_asm.description,
+                    validated=new_asm.validated or old_asm.validated,
+                    source_doc=new_asm.source_doc or old_asm.source_doc,
+                    extracted_at=new_asm.extracted_at
+                )
+
         return existing
 
     def save_outputs(self, project_id: str, outputs: EngineeringOutputs) -> None:
