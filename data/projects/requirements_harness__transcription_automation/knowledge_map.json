@@ -1,0 +1,260 @@
+{
+  "actors": [
+    {
+      "id": "A1",
+      "name": "Martin Parulan",
+      "role": "Developer",
+      "description": "Responsible for processing meeting transcripts, researching harness technology, and monitoring workspace setup.",
+      "source_doc": "https://docs.google.com/document/d/1GDwpDGXgVnV2s4ttfNuk0jL-N-m2Svff6NNpOVCKpfM/edit",
+      "extracted_at": "2026-08-18T08:50:40.688675+00:00"
+    },
+    {
+      "id": "A2",
+      "name": "Nathan Jenk",
+      "role": "Leader",
+      "description": "Conceptualized the requirements harness and set performance goals for Martin Parulan.",
+      "source_doc": "https://docs.google.com/document/d/1GDwpDGXgVnV2s4ttfNuk0jL-N-m2Svff6NNpOVCKpfM/edit",
+      "extracted_at": "2026-08-18T08:50:40.688759+00:00"
+    },
+    {
+      "id": "A3",
+      "name": "System",
+      "role": "Automated Tool",
+      "description": "The Gemini tool used for recording and transcribing meetings.",
+      "source_doc": "https://docs.google.com/document/d/1GDwpDGXgVnV2s4ttfNuk0jL-N-m2Svff6NNpOVCKpfM/edit",
+      "extracted_at": "2026-08-18T08:50:40.688771+00:00"
+    },
+    {
+      "id": "A4",
+      "name": "User",
+      "role": "General User",
+      "description": "An individual who interacts with the requirements harness system.",
+      "source_doc": "https://docs.google.com/document/d/1GDwpDGXgVnV2s4ttfNuk0jL-N-m2Svff6NNpOVCKpfM/edit",
+      "extracted_at": "2026-08-18T08:50:40.688778+00:00"
+    }
+  ],
+  "goals": [
+    {
+      "id": "G1",
+      "description": "Automate the processing of meeting transcriptions for project documentation.",
+      "actor_ids": [
+        "A1"
+      ],
+      "entity_ids": [
+        "E1",
+        "E2"
+      ],
+      "situation_trigger": "When a transcription is completed",
+      "underlying_motivation": "Stakeholder approved standard workflow",
+      "desired_outcome": "Structured project documentation is automatically generated.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:50:40.689654+00:00"
+    },
+    {
+      "id": "G2",
+      "description": "Develop a requirements 'harness' system.",
+      "actor_ids": [
+        "A1",
+        "A2"
+      ],
+      "entity_ids": [
+        "E3"
+      ],
+      "situation_trigger": null,
+      "underlying_motivation": "To go beyond simple note-taking by applying context and domain knowledge to create a comprehensive 'knowledge map'.",
+      "desired_outcome": "A system that identifies information gaps and actively queries the user for missing project specifications.",
+      "failure_modes": [],
+      "source_doc": "https://docs.google.com/document/d/1GDwpDGXgVnV2s4ttfNuk0jL-N-m2Svff6NNpOVCKpfM/edit",
+      "extracted_at": "2026-08-18T08:50:40.688979+00:00"
+    },
+    {
+      "id": "G3",
+      "description": "Master the requirements harness technology.",
+      "actor_ids": [
+        "A1"
+      ],
+      "entity_ids": [
+        "E3"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Stakeholder approved standard workflow",
+      "desired_outcome": "Martin Parulan becomes the expert on the subject and can guide Nathan Jenk on its utilization.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:50:40.689677+00:00"
+    },
+    {
+      "id": "G4",
+      "description": "Receive meeting transcriptions.",
+      "actor_ids": [
+        "A1"
+      ],
+      "entity_ids": [
+        "E1"
+      ],
+      "situation_trigger": "When a call ends",
+      "underlying_motivation": "Stakeholder approved standard workflow",
+      "desired_outcome": "A notification containing the transcription is sent.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:50:40.689693+00:00"
+    },
+    {
+      "id": "G5",
+      "description": "Identify information gaps and actively prompt users for missing project specifications.",
+      "actor_ids": [
+        "A4"
+      ],
+      "entity_ids": [
+        "E3",
+        "E4"
+      ],
+      "situation_trigger": null,
+      "underlying_motivation": "To ensure the synthesis of clear requirements, including jobs to be done, specifications, and acceptance criteria.",
+      "desired_outcome": "Users are queried to define specific goals and provide missing information.",
+      "failure_modes": [],
+      "source_doc": "https://docs.google.com/document/d/1GDwpDGXgVnV2s4ttfNuk0jL-N-m2Svff6NNpOVCKpfM/edit",
+      "extracted_at": "2026-08-18T08:50:40.689028+00:00"
+    }
+  ],
+  "entities": [
+    {
+      "id": "E1",
+      "name": "Meeting Transcription",
+      "fields": [
+        "text_content"
+      ],
+      "description": "The textual output of a recorded meeting.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:50:40.688813+00:00"
+    },
+    {
+      "id": "E2",
+      "name": "Project Documentation",
+      "fields": [
+        "structured_requirements"
+      ],
+      "description": "Organized and structured information about project requirements.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:50:40.688824+00:00"
+    },
+    {
+      "id": "E3",
+      "name": "Requirements Harness System",
+      "fields": [
+        "knowledge_map",
+        "context",
+        "domain_knowledge",
+        "identified_gaps",
+        "user_queries"
+      ],
+      "description": "A knowledge mapping tool designed to ingest, structure, and synthesize project requirements, identify information gaps, and prompt users for missing specifications.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:50:40.688830+00:00"
+    },
+    {
+      "id": "E4",
+      "name": "Project Specifications",
+      "fields": [
+        "goals",
+        "jobs_to_be_done",
+        "specifications",
+        "acceptance_criteria"
+      ],
+      "description": "Detailed descriptions of what a project needs to achieve.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:50:40.688837+00:00"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "C1",
+      "description": "Martin Parulan must master the requirements harness technology.",
+      "target_id": "G3",
+      "is_measurable": true,
+      "sla_metric": "within three months",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:50:40.689087+00:00"
+    }
+  ],
+  "assumptions": [],
+  "edges": [
+    {
+      "source_id": "A1",
+      "target_id": "G1",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G1",
+      "target_id": "E1",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G1",
+      "target_id": "E2",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A1",
+      "target_id": "G2",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "A2",
+      "target_id": "G2",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G2",
+      "target_id": "E3",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A1",
+      "target_id": "G3",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G3",
+      "target_id": "E3",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A1",
+      "target_id": "G4",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G4",
+      "target_id": "E1",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A4",
+      "target_id": "G5",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G5",
+      "target_id": "E3",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G5",
+      "target_id": "E4",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G3",
+      "target_id": "C1",
+      "relation": "CONSTRAINED_BY"
+    }
+  ]
+}

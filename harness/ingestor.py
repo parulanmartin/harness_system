@@ -69,7 +69,11 @@ class TranscriptIngestor:
 
     def _extract_with_llm(self, raw_text: str, kmap: KnowledgeMap) -> None:
         prompt = f"Transcript Content:\n\n{raw_text[:8000]}"
-        response = self.llm_client.complete(prompt=prompt, system_prompt=EXTRACTION_SYSTEM_PROMPT)
+        response = self.llm_client.complete(
+            prompt=prompt,
+            system_prompt=EXTRACTION_SYSTEM_PROMPT,
+            model=self.config.llm_model_extract
+        )
 
         # Clean potential markdown formatting
         cleaned = re.sub(r"^```json\s*", "", response.strip())

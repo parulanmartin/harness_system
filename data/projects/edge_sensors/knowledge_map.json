@@ -1,0 +1,309 @@
+{
+  "actors": [
+    {
+      "id": "nathan_jenk",
+      "name": "Nathan Jenk",
+      "role": "Project Lead/Visionary",
+      "description": "Introduces new project concepts and provides strategic direction.",
+      "source_doc": "https://docs.google.com/document/d/1pp7kBfFUskNZEHYEnn_N1AgmXxY55xqIJCBF3gXxRPk/edit?usp=sharing",
+      "extracted_at": "2026-08-17T14:49:12.257352+00:00"
+    },
+    {
+      "id": "edge_sensors",
+      "name": "Edge Sensors",
+      "role": "Edge Sensors",
+      "description": "",
+      "source_doc": "https://docs.google.com/document/d/1pp7kBfFUskNZEHYEnn_N1AgmXxY55xqIJCBF3gXxRPk/edit?usp=sharing",
+      "extracted_at": "2026-08-17T12:18:42.760216+00:00"
+    },
+    {
+      "id": "meeting_schedule",
+      "name": "Meeting Schedule",
+      "role": "Meeting Schedule",
+      "description": "",
+      "source_doc": "https://docs.google.com/document/d/1pp7kBfFUskNZEHYEnn_N1AgmXxY55xqIJCBF3gXxRPk/edit?usp=sharing",
+      "extracted_at": "2026-08-17T12:18:42.760188+00:00"
+    },
+    {
+      "id": "documentation_tools",
+      "name": "Documentation Tools",
+      "role": "Documentation Tools",
+      "description": "",
+      "source_doc": "https://docs.google.com/document/d/1pp7kBfFUskNZEHYEnn_N1AgmXxY55xqIJCBF3gXxRPk/edit?usp=sharing",
+      "extracted_at": "2026-08-17T12:18:42.760228+00:00"
+    },
+    {
+      "id": "martin_parulan",
+      "name": "Martin Parulan",
+      "role": "Developer",
+      "description": "Responsible for building prototypes and researching technical solutions.",
+      "source_doc": "https://docs.google.com/document/d/1pp7kBfFUskNZEHYEnn_N1AgmXxY55xqIJCBF3gXxRPk/edit?usp=sharing",
+      "extracted_at": "2026-08-17T14:49:12.257205+00:00"
+    }
+  ],
+  "goals": [
+    {
+      "id": "g_edge_sensors",
+      "description": "Deploy edge sensors to collect niche ground data indicators for informational edge",
+      "actor_ids": [
+        "meeting_schedule",
+        "nathan_jenk"
+      ],
+      "entity_ids": [
+        "sensor_reading"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Entity: Sensor Reading",
+      "desired_outcome": "Deliver actionable outcome to stakeholder",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "https://docs.google.com/document/d/1pp7kBfFUskNZEHYEnn_N1AgmXxY55xqIJCBF3gXxRPk/edit?usp=sharing",
+      "extracted_at": "2026-08-17T12:18:42.760331+00:00"
+    },
+    {
+      "id": "G1",
+      "description": "Develop a functional map prototype based on Whimsical specifications.",
+      "actor_ids": [
+        "A1"
+      ],
+      "entity_ids": [
+        "E1",
+        "E2"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Stakeholder approved standard workflow",
+      "desired_outcome": "A working prototype that demonstrates raw input injection, harness score gaps, and question synthesis.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-17T14:49:12.258707+00:00"
+    },
+    {
+      "id": "G2",
+      "description": "Implement a workflow for automatic capture of meeting notes and screenshots.",
+      "actor_ids": [
+        "A1"
+      ],
+      "entity_ids": [
+        "E3",
+        "E4",
+        "E5"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Stakeholder approved standard workflow",
+      "desired_outcome": "Efficient and automated documentation of meeting content.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-17T14:49:12.258744+00:00"
+    },
+    {
+      "id": "G3",
+      "description": "Research potential methods for implementing a system of edge sensors.",
+      "actor_ids": [
+        "A1"
+      ],
+      "entity_ids": [
+        "E6"
+      ],
+      "situation_trigger": null,
+      "underlying_motivation": "To collect unique data at the local level and generate an informational edge.",
+      "desired_outcome": "Identified quantifiable and niche opportunities for edge sensor implementation.",
+      "failure_modes": [],
+      "source_doc": "https://docs.google.com/document/d/1pp7kBfFUskNZEHYEnn_N1AgmXxY55xqIJCBF3gXxRPk/edit?usp=sharing",
+      "extracted_at": "2026-08-17T14:49:12.257774+00:00"
+    },
+    {
+      "id": "G4",
+      "description": "Gain informational advantage through proprietary data collection.",
+      "actor_ids": [
+        "A2"
+      ],
+      "entity_ids": [
+        "E6",
+        "E7"
+      ],
+      "situation_trigger": null,
+      "underlying_motivation": "To have access to information that others cannot or before others do.",
+      "desired_outcome": "Ability to form independent opinions and predict trends before official sources.",
+      "failure_modes": [],
+      "source_doc": "https://docs.google.com/document/d/1pp7kBfFUskNZEHYEnn_N1AgmXxY55xqIJCBF3gXxRPk/edit?usp=sharing",
+      "extracted_at": "2026-08-17T14:49:12.257799+00:00"
+    }
+  ],
+  "entities": [
+    {
+      "id": "sensor_reading",
+      "name": "Sensor Reading",
+      "fields": [],
+      "description": "",
+      "source_doc": "",
+      "extracted_at": "2026-08-17T10:46:19.886215+00:00"
+    },
+    {
+      "id": "E1",
+      "name": "Map Prototype",
+      "fields": [
+        "Google Maps API integration",
+        "Local environment deployment"
+      ],
+      "description": "A prototype demonstrating map functionalities, currently limited to local testing.",
+      "source_doc": "",
+      "extracted_at": "2026-08-17T14:49:12.257440+00:00"
+    },
+    {
+      "id": "E2",
+      "name": "Whimsical Specifications",
+      "fields": [
+        "Raw input injection",
+        "Harness score gaps",
+        "Question synthesis"
+      ],
+      "description": "Design and functional requirements outlined in Whimsical for the map prototype.",
+      "source_doc": "",
+      "extracted_at": "2026-08-17T14:49:12.257470+00:00"
+    },
+    {
+      "id": "E3",
+      "name": "Web Hook",
+      "fields": [],
+      "description": "A mechanism to automatically trigger actions based on events, used for capturing meeting notes.",
+      "source_doc": "",
+      "extracted_at": "2026-08-17T14:49:12.257480+00:00"
+    },
+    {
+      "id": "E4",
+      "name": "Google Docs",
+      "fields": [],
+      "description": "A cloud-based document editor used for storing and organizing meeting notes.",
+      "source_doc": "",
+      "extracted_at": "2026-08-17T14:49:12.257487+00:00"
+    },
+    {
+      "id": "E5",
+      "name": "Meeting Notes and Screenshots",
+      "fields": [],
+      "description": "Documentation of meeting discussions and visual captures from meetings.",
+      "source_doc": "",
+      "extracted_at": "2026-08-17T14:49:12.257494+00:00"
+    },
+    {
+      "id": "E6",
+      "name": "Edge Sensors",
+      "fields": [
+        "Local data collection",
+        "Unique data",
+        "Quantifiable opportunities",
+        "Niche opportunities"
+      ],
+      "description": "A system designed to collect raw, localized data before central aggregation to gain an informational advantage.",
+      "source_doc": "",
+      "extracted_at": "2026-08-17T14:49:12.257500+00:00"
+    },
+    {
+      "id": "E7",
+      "name": "Informational Edge",
+      "fields": [],
+      "description": "The advantage gained by possessing unique or early access to data and insights.",
+      "source_doc": "",
+      "extracted_at": "2026-08-17T14:49:12.257522+00:00"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c_cost",
+      "description": "Cost must be ~$1/day per sensor",
+      "target_id": "g_edge_sensors",
+      "is_measurable": true,
+      "sla_metric": "Target SLA agreed by engineering",
+      "source_doc": "",
+      "extracted_at": "2026-08-17T12:18:42.760343+00:00"
+    }
+  ],
+  "assumptions": [],
+  "edges": [
+    {
+      "source_id": "meeting_schedule",
+      "target_id": "g_edge_sensors",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "nathan_jenk",
+      "target_id": "g_edge_sensors",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "g_edge_sensors",
+      "target_id": "sensor_reading",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "g_edge_sensors",
+      "target_id": "c_cost",
+      "relation": "CONSTRAINED_BY"
+    },
+    {
+      "source_id": "A1",
+      "target_id": "G1",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G1",
+      "target_id": "E1",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G1",
+      "target_id": "E2",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A1",
+      "target_id": "G2",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G2",
+      "target_id": "E3",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G2",
+      "target_id": "E4",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G2",
+      "target_id": "E5",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A1",
+      "target_id": "G3",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G3",
+      "target_id": "E6",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A2",
+      "target_id": "G4",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G4",
+      "target_id": "E6",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G4",
+      "target_id": "E7",
+      "relation": "OPERATES_ON"
+    }
+  ]
+}

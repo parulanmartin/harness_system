@@ -1,0 +1,85 @@
+flowchart LR
+    %% Google Sheets Section
+    subgraph GoogleSheetsDB ["GOOGLE SHEETS (Structured KM DB)"]
+        direction TB
+        MasterSheet[("Master Sheet: Harness Projects Registry<br/>-------------------------------------<br/>project_id | name | description | sheet_id | created_at | status")]
+        
+        subgraph ProjectSheet ["Google Sheet: 'Harness Edge Sensors'"]
+            direction TB
+            T_Actors["Tab: ACTORS"]
+            T_Status["Tab: STATUS"]
+            T_Outputs["Tab: Outputs"]
+            T_Constraints["Tab: Constraints"]
+            T_Gaps["Tab: Gaps History"]
+            T_Goals["Tab: Goals (JTBD)"]
+            T_Transcripts["Tab: Transcripts Log"]
+        end
+    end
+
+    %% Input Layer
+    subgraph InputLayer ["INPUT"]
+        GDocInput["Meeting Transcript<br/>(Google Doc URL)"]
+    end
+
+    FetchTranscript["1. Fetch Transcript text"]
+    GDocInput --> FetchTranscript
+
+    %% Auto Project Detection
+    subgraph AutoDetection ["2. AUTO PROJECT DETECTION (LLM)"]
+        AutoDetect["AutoDetect"]
+        MatchDecision{"Match found in<br/>Projects Registry?"}
+        
+        NewProjectPrompt["Prompt: Create new project?<br/>User provides name + description"]
+        CreateSheet["Create new Google Sheet<br/>+ register in Projects Registry"]
+        
+        ConfirmProject["User confirms or overrides"]
+        RouteSheet["Route to project sheet"]
+        
+        AutoDetect --> MatchDecision
+        MatchDecision -- "No match" --> NewProjectPrompt
+        NewProjectPrompt --> CreateSheet
+        CreateSheet --> RouteSheet
+        
+        MatchDecision -- "Yes: 'This looks like<br/>Edge Sensors project'" --> ConfirmProject
+        ConfirmProject --> RouteSheet
+    end
+
+    FetchTranscript --> AutoDetect
+
+    %% Harness Core
+    subgraph HarnessCore ["HARNESS SYSTEM CORE"]
+        LoadKM["Load KM DB"]
+        LLMExtract["4. LLM Extraction<br/>(Gemini 2.5 Flash via OpenRouter)<br/>Extract Actors, Goals, Entities, Constraints"]
+        MergeDedup["5. Merge + Deduplicate<br/>new primitives into existing map"]
+        GapDetector["GapDetector"]
+        GapsFound{"Gaps Found?"}
+        
+        QuestionEngine["7. Question Engine<br/>Generate priority questions"]
+        PrintTerminal["Print to terminal"]
+        UserAnswers["User answers"]
+        
+        SynthesisEngine["8. Synthesis Engine<br/>Generate Requirements, JTBD,<br/>Spec, Acceptance Criteria"]
+        
+        LoadKM --> LLMExtract
+        LLMExtract --> MergeDedup
+        MergeDedup --> GapDetector
+        GapDetector --> GapsFound
+        
+        %% Feedback Loop
+        GapsFound -- "YES" --> QuestionEngine
+        QuestionEngine --> PrintTerminal
+        PrintTerminal --> UserAnswers
+        UserAnswers --> LLMExtract
+    end
+
+    RouteSheet --> LoadKM
+    ProjectSheet -.-> LoadKM
+
+    %% Outputs
+    SaveLocal["Save synthesized_spec.md locally"]
+    WriteBackDB["Write updated KM DB + Outputs<br/>back to Google Sheet DBs"]
+
+    GapsFound -- "NO" --> SynthesisEngine
+    SynthesisEngine --> SaveLocal
+    SynthesisEngine --> WriteBackDB
+    WriteBackDB -.-> ProjectSheet

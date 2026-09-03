@@ -1,0 +1,629 @@
+{
+  "actors": [
+    {
+      "id": "martin_parulan",
+      "name": "Martin Parulan",
+      "role": "Developer",
+      "description": "Responsible for building the system components and prototypes.",
+      "source_doc": "https://docs.google.com/document/d/1yFlpu56QxHXtmR4-zQDMOaBqluPnHTVBUIuT2ZPV570/edit?tab=t.0#heading=h.8s5pl180i6vr",
+      "extracted_at": "2026-08-18T08:55:13.616184+00:00"
+    },
+    {
+      "id": "nathan_jenk",
+      "name": "Nathan Jenk",
+      "role": "Product Lead/Strategist",
+      "description": "Defines the core problem, strategic direction, and technical approach for trend detection.",
+      "source_doc": "https://docs.google.com/document/d/1yFlpu56QxHXtmR4-zQDMOaBqluPnHTVBUIuT2ZPV570/edit?tab=t.0#heading=h.8s5pl180i6vr",
+      "extracted_at": "2026-08-18T08:55:13.616238+00:00"
+    }
+  ],
+  "goals": [
+    {
+      "id": "detect_early_weak_trend_signals",
+      "description": "Detect early, weak trend signals across niche digital communities.",
+      "actor_ids": [
+        "nathan_jenk"
+      ],
+      "entity_ids": [
+        "entity_detect_early_weak_trend_signals"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Mainstream tools act as lagging indicators because they measure volume after saturation.",
+      "desired_outcome": "Detect acceleration and velocity deltas in micro-communities.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:54:26.720937+00:00"
+    },
+    {
+      "id": "build_signal_filtering_harness",
+      "description": "Implement a velocity-delta scoring pipeline to separate genuine breakout chatter from inorganic bot spikes and one-off viral noise.",
+      "actor_ids": [
+        "martin_parulan"
+      ],
+      "entity_ids": [
+        "entity_build_signal_filtering_harness"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "I want to get updated everytime I have new trends about businesses",
+      "desired_outcome": "Deliver actionable outcome to stakeholder",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:53:26.088474+00:00"
+    },
+    {
+      "id": "prototype_niche_data_connectors",
+      "description": "Build scrapers/webhooks for 3\u20135 initial high-signal sources (e.g., specialized developer forums, niche beauty/fashion message boards, early consumer review boards).",
+      "actor_ids": [
+        "martin_parulan"
+      ],
+      "entity_ids": [
+        "entity_prototype_niche_data_connectors"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "It's hard to monitor multiple sources",
+      "desired_outcome": "Deliver actionable outcome to stakeholder",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:53:26.088564+00:00"
+    },
+    {
+      "id": "wire_up_llm_synthesis_layer",
+      "description": "Wire up an automated daily digest that groups anomalous phrase spikes and synthesizes the underlying trends.",
+      "actor_ids": [
+        "martin_parulan"
+      ],
+      "entity_ids": [
+        "entity_wire_up_llm_synthesis_layer"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Funneling all sources into one places",
+      "desired_outcome": "Deliver actionable outcome to stakeholder",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:53:26.088609+00:00"
+    },
+    {
+      "id": "build_test_harness_for_niches",
+      "description": "Build a test harness for three distinct niches: developer tooling, niche consumer goods, and hobbyist hardware.",
+      "actor_ids": [
+        "martin_parulan"
+      ],
+      "entity_ids": [
+        "entity_build_test_harness_for_niches"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Finding the things to work on",
+      "desired_outcome": "Deliver actionable outcome to stakeholder",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:54:26.720645+00:00"
+    },
+    {
+      "id": "automate_meeting_summary_dump",
+      "description": "Automatically dump daily meeting summaries and screenshots into Google Docs after calls.",
+      "actor_ids": [
+        "martin_parulan"
+      ],
+      "entity_ids": [
+        "entity_automate_meeting_summary_dump"
+      ],
+      "situation_trigger": "After calls",
+      "underlying_motivation": "Don't have to asses everytime and it will be easy for us to monitor our updates",
+      "desired_outcome": "To make meeting information easily accessible and helpful.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:54:26.720881+00:00"
+    },
+    {
+      "id": "G1",
+      "description": "Detect early, weak trend signals across niche digital communities.",
+      "actor_ids": [
+        "A2"
+      ],
+      "entity_ids": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "situation_trigger": null,
+      "underlying_motivation": "Mainstream tools act as lagging indicators, measuring volume after saturation.",
+      "desired_outcome": "Identify trends at the 'cultural edge' before mainstream media or aggregate platforms pick them up, providing an informational edge.",
+      "failure_modes": [
+        "Building 'yet another Google Trends clone'"
+      ],
+      "source_doc": "https://docs.google.com/document/d/1yFlpu56QxHXtmR4-zQDMOaBqluPnHTVBUIuT2ZPV570/edit?tab=t.0#heading=h.8s5pl180i6vr",
+      "extracted_at": "2026-08-18T08:55:13.616297+00:00"
+    },
+    {
+      "id": "G2",
+      "description": "Implement a velocity-delta scoring pipeline to separate genuine breakout chatter from inorganic bot spikes and one-off viral noise.",
+      "actor_ids": [
+        "A1"
+      ],
+      "entity_ids": [
+        "E1",
+        "E2"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Stakeholder approved standard workflow",
+      "desired_outcome": "Quantify and score signals based on acceleration rather than total volume.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.617337+00:00"
+    },
+    {
+      "id": "G3",
+      "description": "Prototype niche data connectors for high-signal sources.",
+      "actor_ids": [
+        "A1"
+      ],
+      "entity_ids": [
+        "E3"
+      ],
+      "situation_trigger": null,
+      "underlying_motivation": "Monitoring micro-pools and specific, concentrated spaces is more effective than monitoring the 'big ocean'.",
+      "desired_outcome": "Ingest data from targeted, high-signal sources efficiently.",
+      "failure_modes": [
+        "Scraping everything blindly, leading to garbage noise and high cost"
+      ],
+      "source_doc": "https://docs.google.com/document/d/1yFlpu56QxHXtmR4-zQDMOaBqluPnHTVBUIuT2ZPV570/edit?tab=t.0#heading=h.8s5pl180i6vr",
+      "extracted_at": "2026-08-18T08:55:13.616347+00:00"
+    },
+    {
+      "id": "G4",
+      "description": "Wire up an automated daily digest that groups anomalous phrase spikes and synthesizes the underlying 'why' in 2 sentences.",
+      "actor_ids": [
+        "A1"
+      ],
+      "entity_ids": [
+        "E1",
+        "E4"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Stakeholder approved standard workflow",
+      "desired_outcome": "Provide actionable insights by categorizing anomalous keyword spikes and highlighting consumer/tech shifts.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.617373+00:00"
+    },
+    {
+      "id": "G5",
+      "description": "Refine the noise-filtering harness.",
+      "actor_ids": [
+        "A2"
+      ],
+      "entity_ids": [
+        "E2"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Stakeholder approved standard workflow",
+      "desired_outcome": "Improve the accuracy of signal detection by reducing false positives from bot spikes and viral noise.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.617389+00:00"
+    },
+    {
+      "id": "G6",
+      "description": "Validate the anomaly model with 3 distinct niches.",
+      "actor_ids": [
+        "A2"
+      ],
+      "entity_ids": [
+        "E1",
+        "E3"
+      ],
+      "situation_trigger": "When initiated by stakeholder",
+      "underlying_motivation": "Stakeholder approved standard workflow",
+      "desired_outcome": "Ensure the anomaly detection system works effectively across different types of niche communities.",
+      "failure_modes": [
+        "Handle standard system timeouts and log error alerts"
+      ],
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.617404+00:00"
+    }
+  ],
+  "entities": [
+    {
+      "id": "trend_signal",
+      "name": "Trend Signal",
+      "fields": [
+        "velocity-delta score",
+        "anomaly score",
+        "quantifiable",
+        "velocity deltas",
+        "keyword",
+        "mentions",
+        "acceleration"
+      ],
+      "description": "An indicator of an emerging trend, characterized by a significant rate of change in mentions within a niche community.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.616255+00:00"
+    },
+    {
+      "id": "niche_data_node",
+      "name": "Niche Data Node",
+      "fields": [],
+      "description": "Sources of information from micro-communities (e.g., Korean beauty forum, Discord bot logs, open-source dependencies).",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:51:55.799330+00:00"
+    },
+    {
+      "id": "signal_filtering_harness",
+      "name": "Signal Filtering Harness",
+      "fields": [
+        "rolling average",
+        "velocity-delta scoring pipeline",
+        "duration threshold",
+        "standard deviations"
+      ],
+      "description": "A system component designed to process raw data streams and identify genuine trend signals by filtering out noise.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.616263+00:00"
+    },
+    {
+      "id": "niche_data_connector",
+      "name": "Niche Data Connector",
+      "fields": [],
+      "description": "Scrapers or webhooks for ingesting data from specific niche sources.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:51:55.799352+00:00"
+    },
+    {
+      "id": "llm_synthesis_layer",
+      "name": "LLM Synthesis Layer",
+      "fields": [
+        "underlying 'why'",
+        "daily digest",
+        "vector embeddings",
+        "LLM batch jobs",
+        "anomalous phrase spikes"
+      ],
+      "description": "An AI-powered component that groups and interprets anomalous keyword spikes to synthesize actionable insights.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.616275+00:00"
+    },
+    {
+      "id": "daily_summary",
+      "name": "Daily Summary",
+      "fields": [],
+      "description": "An automated digest of anomalous phrase spikes and underlying trends.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:51:55.799370+00:00"
+    },
+    {
+      "id": "meeting_summary",
+      "name": "Meeting Summary",
+      "fields": [],
+      "description": "A summary of meeting discussions and decisions.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:51:55.799379+00:00"
+    },
+    {
+      "id": "screenshot",
+      "name": "Screenshot",
+      "fields": [],
+      "description": "Visual captures related to meeting content.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:51:55.799388+00:00"
+    },
+    {
+      "id": "google_docs",
+      "name": "Google Docs",
+      "fields": [],
+      "description": "A platform for document storage and collaboration.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:51:55.799396+00:00"
+    },
+    {
+      "id": "entity_build_signal_filtering_harness",
+      "name": "Core Domain Entity",
+      "fields": [],
+      "description": "",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:53:26.088332+00:00"
+    },
+    {
+      "id": "entity_prototype_niche_data_connectors",
+      "name": "Core Domain Entity",
+      "fields": [],
+      "description": "",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:53:26.088531+00:00"
+    },
+    {
+      "id": "entity_wire_up_llm_synthesis_layer",
+      "name": "Core Domain Entity",
+      "fields": [],
+      "description": "",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:53:26.088600+00:00"
+    },
+    {
+      "id": "entity_build_test_harness_for_niches",
+      "name": "Core Domain Entity",
+      "fields": [],
+      "description": "",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:54:26.720502+00:00"
+    },
+    {
+      "id": "entity_automate_meeting_summary_dump",
+      "name": "Core Domain Entity",
+      "fields": [],
+      "description": "",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:54:26.720836+00:00"
+    },
+    {
+      "id": "entity_detect_early_weak_trend_signals",
+      "name": "Core Domain Entity",
+      "fields": [],
+      "description": "",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:54:26.720921+00:00"
+    },
+    {
+      "id": "E3",
+      "name": "Niche Data Source",
+      "fields": [
+        "type (e.g., forum, message board, repo)",
+        "API/webhook",
+        "scraper"
+      ],
+      "description": "Specific, concentrated online communities or platforms where early trend signals are likely to emerge (e.g., Reddit, GitHub, Korean beauty forums, specialized developer forums).",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.616269+00:00"
+    },
+    {
+      "id": "E5",
+      "name": "Dashboard Prototype",
+      "fields": [
+        "live feed",
+        "sparkline graphs",
+        "score visualization",
+        "alert triggers"
+      ],
+      "description": "A user interface for visualizing incoming signal streams and detected trends.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.616281+00:00"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "quantifiable_signals",
+      "description": "Signals must be quantifiable using automated anomaly detection and LLM-powered root cause clustering.",
+      "target_id": "trend_signal",
+      "is_measurable": true,
+      "sla_metric": "Automated anomaly detection and LLM-powered root cause clustering must be applied to all signals.",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T07:51:55.799529+00:00"
+    },
+    {
+      "id": "C1",
+      "description": "A keyword must cross three standard deviations above its 14-day rolling average to be flagged yellow.",
+      "target_id": "E1",
+      "is_measurable": true,
+      "sla_metric": "3 standard deviations above 14-day rolling average",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.616405+00:00"
+    },
+    {
+      "id": "C2",
+      "description": "A flagged keyword must sustain its elevated state for over six hours to flip to red.",
+      "target_id": "E1",
+      "is_measurable": true,
+      "sla_metric": "sustained for >6 hours",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.616419+00:00"
+    },
+    {
+      "id": "C3",
+      "description": "The automated daily digest must synthesize the underlying 'why' in 2 sentences.",
+      "target_id": "G4",
+      "is_measurable": true,
+      "sla_metric": "2 sentences",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.616428+00:00"
+    },
+    {
+      "id": "C4",
+      "description": "The system should monitor 50 high-signal, inconvenient sources rather than 5,000 generic ones.",
+      "target_id": "G3",
+      "is_measurable": true,
+      "sla_metric": "Number of high-signal sources vs. generic sources",
+      "source_doc": "",
+      "extracted_at": "2026-08-18T08:55:13.616434+00:00"
+    }
+  ],
+  "assumptions": [],
+  "edges": [
+    {
+      "source_id": "nathan_jenk",
+      "target_id": "detect_early_weak_trend_signals",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "detect_early_weak_trend_signals",
+      "target_id": "entity_detect_early_weak_trend_signals",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "martin_parulan",
+      "target_id": "build_signal_filtering_harness",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "build_signal_filtering_harness",
+      "target_id": "entity_build_signal_filtering_harness",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "martin_parulan",
+      "target_id": "prototype_niche_data_connectors",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "prototype_niche_data_connectors",
+      "target_id": "entity_prototype_niche_data_connectors",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "martin_parulan",
+      "target_id": "wire_up_llm_synthesis_layer",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "wire_up_llm_synthesis_layer",
+      "target_id": "entity_wire_up_llm_synthesis_layer",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "martin_parulan",
+      "target_id": "build_test_harness_for_niches",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "build_test_harness_for_niches",
+      "target_id": "entity_build_test_harness_for_niches",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "martin_parulan",
+      "target_id": "automate_meeting_summary_dump",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "automate_meeting_summary_dump",
+      "target_id": "entity_automate_meeting_summary_dump",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "trend_signal",
+      "target_id": "quantifiable_signals",
+      "relation": "CONSTRAINED_BY"
+    },
+    {
+      "source_id": "A2",
+      "target_id": "G1",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G1",
+      "target_id": "E1",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G1",
+      "target_id": "E2",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G1",
+      "target_id": "E3",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A1",
+      "target_id": "G2",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G2",
+      "target_id": "E1",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G2",
+      "target_id": "E2",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A1",
+      "target_id": "G3",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G3",
+      "target_id": "E3",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A1",
+      "target_id": "G4",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G4",
+      "target_id": "E1",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G4",
+      "target_id": "E4",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A2",
+      "target_id": "G5",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G5",
+      "target_id": "E2",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "A2",
+      "target_id": "G6",
+      "relation": "PERFORMS"
+    },
+    {
+      "source_id": "G6",
+      "target_id": "E1",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "G6",
+      "target_id": "E3",
+      "relation": "OPERATES_ON"
+    },
+    {
+      "source_id": "E1",
+      "target_id": "C1",
+      "relation": "CONSTRAINED_BY"
+    },
+    {
+      "source_id": "E1",
+      "target_id": "C2",
+      "relation": "CONSTRAINED_BY"
+    },
+    {
+      "source_id": "G4",
+      "target_id": "C3",
+      "relation": "CONSTRAINED_BY"
+    },
+    {
+      "source_id": "G3",
+      "target_id": "C4",
+      "relation": "CONSTRAINED_BY"
+    }
+  ]
+}
